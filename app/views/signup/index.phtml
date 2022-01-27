@@ -1,0 +1,36 @@
+<?php echo $this->tag->form("/signup/register"); 
+
+?>
+<form method="GET">
+    <h2 class="my-4 title">Form Tambah Data</h2>
+
+    <?php if ($this->session->get('pesan-create')) : 
+
+        ?>
+
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+        <?= $this->session->get('pesan-create');
+        $this->session->destroy();        
+        ?>
+    </div>
+
+    <?php endif; ?>
+
+    <div class="mb-3">
+        <label for="nama" id="nama" class="form-label">Nama</label>
+        <input type="text" class="form-control" name="nama" required autofocus>
+    </div>
+    <div class="mb-3">
+        <label for="alamat" id="alamat" name="alamat" class="form-label">Alamat</label>
+
+        <input type="text" class="form-control" name="alamat" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" id="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" <?php $this->tag->submitButton("Register"); ?>>Submit</button>
+
+    <?php echo $this->tag->linkTo(['/', 'Kembali', 'class' => 'btn btn-primary']); ?>
+</form>
